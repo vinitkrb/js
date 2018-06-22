@@ -13,6 +13,29 @@
                 return this.firstName + ' ' + this.lastName;
             }
         };
+
+        function sum(a) {
+            let currentSum = a;
+
+            function f(b) {
+                currentSum += b;
+                return f;
+            }
+            f.toString = function () {
+                return currentSum;
+            };
+            return f;
+        }
+        let name = "vinit";
+        let count = (name.match(/i/gi) || []).length;
+        var memo = [];
+
+        function fibonacci(n) {
+            if (n === 0 || n === 1)
+                return n;
+            else
+                return fibonacci(n - 1) + fibonacci(n - 2);
+        }
         let divs = new Array();
         divs[0] = "errFirst";
         divs[1] = "errLast";
@@ -123,6 +146,22 @@
             <h4 id="time">JavaScript Events</h4>
             <button class="btn btn-outline-primary" onclick='document.getElementById("time").innerHTML = Date()'>Time</button>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 alert alert-warning">
+            <h4 id="clousure">Clousure Function</h4>
+            <button class="btn btn-outline-warning" onclick='document.getElementById("clousure").innerHTML = sum(3)(4)(5)(6)'>Sum</button>
+        </div>
+        <div class="col-md-4 alert alert-warning">
+            <h4 id="count">Count of i in Vinit</h4>
+            <button class="btn btn-outline-warning" onclick='document.getElementById("count").innerHTML = count'>Calculate</button>
+        </div>
+        <div class="col-md-4 alert alert-warning">
+            <h4 id="fibo">Fibonacci Series</h4>
+            <button class="btn btn-outline-warning" onclick='document.getElementById("fibo").innerHTML = fibonacci(7)'>Fibonacci </button>
+        </div>
+
+
     </div>
     <div>
         <form>
