@@ -125,6 +125,42 @@
             <button class="btn btn-outline-success" onclick='document.getElementById("css").style.fontSize="20px"'>Change Font Size</button>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-4 alert alert-success">
+            <script>
+                String.prototype.spacify = function () {
+                    return this.split('').join(' ');
+                };
+            </script>
+            <h4 id="prototype">String Prototype Function</h4>
+            <input type="text" id="spf" value="Vinit" />
+            <button class="btn btn-outline-success" onclick='document.getElementById("prototype").innerHTML = spf.value.spacify();'>Show Space After Each Character</button>
+        </div>
+        <div class="col-md-4 alert alert-success">
+            <script>
+                let User = {
+                    count: 1,
+                    getCount: function () {
+                        return this.count;
+                    }
+                };
+                let func = User.getCount.bind(User);
+            </script>
+            <h4 id="context">JavaScript Context</h4>
+            <button class="btn btn-outline-success" onclick='document.getElementById("context").innerHTML = func()'>Bind into Function</button>
+        </div>
+        <div class="col-md-4 alert alert-success">
+            <script>
+                function isPalindrome(str) {
+                    str = str.replace(/\W/g, '').toLowerCase();
+                    return (str == str.split('').reverse().join(''));
+                }
+            </script>
+            <h4 id="palindrome">Palindrome</h4>
+            <input type="text" id="myText" value="level" />
+            <button class="btn btn-outline-success" onclick='document.getElementById("palindrome").innerHTML = isPalindrome(myText.value)'>Check</button>
+        </div>
+    </div>
     <center>
         <div class="alert alert-danger">
             <h4>JavaScript can change HTML attribute values.</h4>
@@ -136,7 +172,9 @@
     <div class="row">
         <div class="col-md-4 alert alert-info">
             <h4 id="mul">JavaScript Arithmetic operations</h4>
-            <button class="btn btn-outline-primary" onclick='document.getElementById("mul").innerHTML = myFunction(4, 3)'>Muliplication</button>
+            <input type="number" id="num1" value=4 />
+            <input type="number" id="num2" value=5 />
+            <button class="btn btn-outline-primary" onclick='document.getElementById("mul").innerHTML = myFunction(num1.value, num2.value)'>Multiply</button>
         </div>
         <div class="col-md-4 alert alert-info">
             <h4 id="obj">JavaScript Objects</h4>
@@ -148,20 +186,23 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4 alert alert-warning">
+        <div class="col-md-4 alert alert-info">
             <h4 id="clousure">Clousure Function</h4>
-            <button class="btn btn-outline-warning" onclick='document.getElementById("clousure").innerHTML = sum(3)(4)(5)(6)'>Sum</button>
+            <input type="number" id="numb1" value=4 style="width:40px;" />
+            <input type="number" id="numb2" value=5 style="width:40px;" />
+            <input type="number" id="numb3" value=4 style="width:40px;" />
+            <!-- +numb1.value here + is to read the value as an integer from textbox-->
+            <button class="btn btn-outline-primary" onclick='document.getElementById("clousure").innerHTML = sum(+numb1.value)(+numb2.value)(+numb3.value)'>Sum</button>
         </div>
-        <div class="col-md-4 alert alert-warning">
+        <div class="col-md-4 alert alert-info">
             <h4 id="count">Count of i in Vinit</h4>
-            <button class="btn btn-outline-warning" onclick='document.getElementById("count").innerHTML = count'>Calculate</button>
+            <button class="btn btn-outline-primary" onclick='document.getElementById("count").innerHTML = count'>Calculate</button>
         </div>
-        <div class="col-md-4 alert alert-warning">
+        <div class="col-md-4 alert alert-info">
             <h4 id="fibo">Fibonacci Series</h4>
-            <button class="btn btn-outline-warning" onclick='document.getElementById("fibo").innerHTML = fibonacci(7)'>Fibonacci </button>
+            <input type="number" id="fib" value="" placeholder="Enter to check the value of fibonacci" />
+            <button class="btn btn-outline-primary" onclick='document.getElementById("fibo").innerHTML = fibonacci(fib.value)'>Fibonacci </button>
         </div>
-
-
     </div>
     <div>
         <form>
